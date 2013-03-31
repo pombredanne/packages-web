@@ -3,25 +3,25 @@
    po_lang = 'en'
    ddtp_lang = 'en'
 
-   organisation = 'Ubuntu'
-   project_homepage = 'http://www.ubuntu.com/'
+   organisation = 'Tanglu'
+   project_homepage = 'http://www.tanglu.org/'
    packages_homepage = '/'
-   packages_homepage_abs = 'http://packages.ubuntu.com/'
+   packages_homepage_abs = 'http://packages.tanglu.org/'
    packages_homepage_abs = 'http://packages.debian.net/'
-   old_releases = 'http://old-releases.ubuntu.com/'
+   old_releases = 'http://palaeontology.ubuntu.com/'
    searchformurl = packages_homepage
    search_url = '/search'
    tags_url = 'http://debtags.alioth.debian.org/'
    bugs_url = 'http://bugs.debian.org/'
-   launchpad_url = 'https://launchpad.net/distros/ubuntu/+source/'
+   tanglu_bt_url = 'http://bugs.tanglu.org/'
    pts_url = 'http://packages.qa.debian.org/'
    ddpo_url = 'http://qa.debian.org/developer.php?login='
    src_bugs_url = bugs_url _ 'src:'
-   mirror_url = 'http://archive.ubuntu.com/'
-   security_mirror = 'security.ubuntu.com'
-   security_mirror_url = security_mirror _ '/ubuntu'
+   mirror_url = 'http://archive.tanglu.org/'
+   security_mirror = 'security.tanglu.org'
+   security_mirror_url = security_mirror _ '/tanglu'
    security_suite_suffix = '-security'
-   changelogs_url = 'http://changelogs.ubuntu.com/changelogs/'
+#   changelogs_url = 'http://changelogs.ubuntu.com/changelogs/'
    policy_url = 'http://www.debian.org/doc/debian-policy/'
 #   cn_help_url = project_homepage _ 'intro/cn'
 #   patch_tracking_url = 'http://patch-tracker.debian.org/package'
@@ -33,8 +33,8 @@
         alt => organisation,
    }
    copyright = {
-	url => 'http://www.canonical.com/',
-        name => 'Canonical Ltd.',
+	url => 'http://www.tanglu.org/',
+        name => 'The Tanglu Project',
         years => timestamp.year,
    }
    license = {
@@ -45,13 +45,13 @@
 	url => project_homepage _ 'aboutus/trademarkpolicy'
    }
    contact = {
-	name => 'Gerfried Fuchs',
-	mail => 'rhonda@ubuntu.com',
+	name => 'Matthias Klumpp',
+	mail => 'mak@debian.org',
         url => project_homepage _ 'support',
    }
    admin = {
-	name => 'Gerfried Fuchs',
-	mail => 'rhonda@ubuntu.com',
+	name => 'Matthias Klumpp',
+	mail => 'mak@debian.org',
    }
    trademarknotes = g('%s is a <a href="%s">trademark</a> of %s', organisation, trademark.url, trademark.name)
 #   sponsors = [
@@ -68,7 +68,7 @@
 [%-
    # possible values for importance: high, normal, low
 #   sitewidemsg = { importance => "high",
-#		   txt => g('Please note that this is an experimental version of <a href="http://%s/">%s</a>. Errors and obsolete information should be expected', 'packages.ubuntu.com', 'packages.ubuntu.com') }
+#		   txt => g('Please note that this is an experimental version of <a href="http://%s/">%s</a>. Errors and obsolete information should be expected', 'packages.tanglu.org', 'packages.tanglu.org') }
 -%]
 [%# @translators: . = decimal_point , = thousands_sep, see Number::Format %]
 [%- USE num = Number.Format( decimal_point => g('.'),

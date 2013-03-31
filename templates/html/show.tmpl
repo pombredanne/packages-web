@@ -68,7 +68,7 @@
 [% END %]
 <h3>[% g('%s Resources:', organisation) %]</h3>
 <ul>
-<li><a href="[% launchpad_url _ (is_source ? pkg : src.pkg) _ '/+bugs' %]">[% g('Bug Reports') %]</a></li>
+<li><a href="[% 'http://bugs.tanglu.org/query?component=' _ (is_source ? pkg : src.pkg) %]">[% g('Bug Reports') %]</a></li>
 
 [% IF files && (!archive or archive == main_archive or archive == 'security') %]
 <li><a href="[% changelogs_url _ files.changelog.path %]">[% g('%s Changelog', organisation) %]</a></li>
@@ -121,8 +121,8 @@
 	mailarchiveurl = 'http://lists.debian.org/' _ uri_escape(matches.0) _ '/';
   ELSIF (matches = mail.match('^(.*)@lists\.alioth\.debian\.org$'));
 	mailarchiveurl = 'http://lists.alioth.debian.org/pipermail/' _ uri_escape(matches.0) _ '/';
-  ELSIF (matches = mail.match('^(.*)@lists\.ubuntu\.com$'));
-  	mailarchiveurl = 'http://lists.ubuntu.com/archives/' _ uri_escape(matches.0) _ '/';
+  ELSIF (matches = mail.match('^(.*)@lists\.tanglu\.org$'));
+  	mailarchiveurl = 'http://lists.tanglu.org/archives/' _ uri_escape(matches.0) _ '/';
   END -%]
   [% IF hide_mail %]
 	<li>[% name | html %]
@@ -144,9 +144,8 @@
    PROCESS handle_maintainer name=m.name mail=m.mail;
    '</ul>' IF loop.last;
  END -%]
-<p>[% g('Please consider <a href="%s">filing a bug</a> or <a href="%s">asking a question</a> via Launchpad before contacting the maintainer directly.',
-        "https://bugs.launchpad.net/ubuntu/+source/" _ (is_source ? pkg : src.pkg) _ "/+filebug",
-        "https://answers.launchpad.net/ubuntu/+source/" _ (is_source ? pkg : src.pkg) _ "/+addquestion") %]</p>
+<p>[% g('Please consider <a href="%s">filing a bug</a> before contacting the maintainer directly.',
+        "http://bugs.tanglu.org/newticket?component=" _ (is_source ? pkg : src.pkg)</p>
 [%- END -%]
 
 [%- IF original_maintainers.size -%]
