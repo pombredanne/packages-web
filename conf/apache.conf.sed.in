@@ -66,10 +66,10 @@
 </Directory>
 
 <VirtualHost 91.189.94.203:80>
-   ServerAdmin rhonda@ubuntu.com
+   ServerAdmin matthias@tanglu.org
    DocumentRoot %TOPDIR%/www/
    ServerName %SITE%
-   ServerAlias packages.ubunut.com
+   ServerAlias packages.tanglu.org
    ErrorLog /var/log/apache2/%SITE%-error.log
    CustomLog /var/log/apache2/%SITE%-access.log combined
 
@@ -106,7 +106,7 @@
    RewriteRule ^/changelogs/ - [L]
    RewriteRule ^/Pics/ - [L]
    RewriteRule ^/about/ - [L]
-   RewriteRule ^/ubuntu/ - [L]
+   RewriteRule ^/tanglu/ - [L]
    RewriteRule ^/[^/]+\.css - [L]
    RewriteRule ^/[^/]+\.js - [L]
    RewriteRule ^/favicon.ico$ - [L]
@@ -140,18 +140,5 @@
 #   RewriteCond %{SCRIPT_FILENAME} !^/(stable|testing|unstable|experimental)/
 #   RewriteRule . /index.html
 
-</VirtualHost>
-
-<VirtualHost 91.189.94.203:80>
-   ServerAdmin rhonda@ubuntu.com
-   DocumentRoot %TOPDIR%/www/
-   ServerName packages.ubuntu.net
-   ServerAlias packages.ubuntulinux.org
-   ErrorLog /var/log/apache2/%SITE%-error.log
-   CustomLog /var/log/apache2/%SITE%-access.log combined
-
-   ScriptAlias /cgi-bin %TOPDIR%/cgi-bin/
-
-   RedirectMatch permanent (.*) http://%SITE%$1
 </VirtualHost>
 
