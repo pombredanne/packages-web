@@ -18,31 +18,31 @@ height: 90px;
 	margin:0;
 }
 
-#search 
+#search
 {
 position:absolute;
 top:10px;
-right:20px;		  
+right:20px;
 }
 #masthead #search a {
 	color: #5B4832;
 	text-decoration: underline;
 }
-#nav 
+#nav
 {
 position:absolute;
 bottom:0px;
 right:10px;
 }
-		  
-#nav ul 
+
+#nav ul
 {
 margin:0;
 padding:10px 10px 0 20px;
 list-style:none;
 }
-		  
-#nav li 
+
+#nav li
 {
 float:left;
 background:url("tab_off_ns1.gif") no-repeat left top;
@@ -50,7 +50,7 @@ margin:0;
 padding:0 0 0 5px;
 }
 
-#nav a 
+#nav a
 {
 float:left;
 font-size:105%;
@@ -69,26 +69,26 @@ color:#444;
 color:#333;
 }
 
-#nav li:hover, #nav li:hover a 
+#nav li:hover, #nav li:hover a
 {
 background-position:0% -163px;
 color:#000;
 }
 
-#nav li:hover a 
+#nav li:hover a
 {
 background-position:100% -163px;
 color:#000;
 }
 
-#nav #current 
+#nav #current
 {
-background:url("tab_on_ns1.gif") no-repeat left top;		  
+background:url("tab_on_ns1.gif") no-repeat left top;
 }
 
-#nav #current a 
+#nav #current a
 {
-background:url("tab_on_ns2.gif") no-repeat right top;		  
+background:url("tab_on_ns2.gif") no-repeat right top;
 padding-bottom:4px;
 color:#000;
 }
@@ -104,7 +104,6 @@ color:#000;
     margin: 1em 0em 0em 0em;
     padding: 0.5em 1em 0.5em 3em;
     vertical-align: middle;
-    background-image: url(http://www.ubuntulinux.org/testing_area/info_icon.gif);
     background-repeat: no-repeat;
     background-position: 5px center ;
 

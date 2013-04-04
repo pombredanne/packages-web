@@ -9,7 +9,7 @@
 <meta name="Keywords" content="[% organisation %],  [% keywords %]">
 [% html_meta %]
 
-<link href="/ubuntu/ubuntu-new.css" rel="stylesheet" type="text/css" media="all">
+<link href="/tanglu/tanglu.css" rel="stylesheet" type="text/css" media="all">
 [% IF rss_alternate %]
 <link rel="alternate" type="application/rss+xml" title="RSS" href="[% rss_alternate %]">
 [% END %]
@@ -25,7 +25,7 @@
     <div id="wrapper">
       <div id="header">
         <a class="imageLink"
-             href="[% homepage %]"><img src="/ubuntu/logo-ubuntu-header.png" width="118" height="27" alt="Ubuntu Logo" /> packages</a>
+             href="[% homepage %]"><img src="/tanglu/tanglu-logo-header.png" width="118" height="27" alt="Tanglu Logo" /> packages</a>
 
         <a class="hiddenStructure"
              href="[% homepage %]/#documentContent">Skip
@@ -64,7 +64,7 @@
  » <a href="[% project_homepage %]" title="[% g('%s Homepage', organisation) %]">[% organisation %]</a>
  » <a href="[% packages_homepage %]" title="[% g('%s Packages Homepage', organisation) %]">[% g('Packages') %]</a>
 [% FOREACH n IN navigation %]
- » [% IF n.url %]<a href="[% n.url %]" [% IF n.title %]title="[% n.title %]"[% END %]>[% n.name %]</a>[% ELSE %][% n.name %][% END %] 
+ » [% IF n.url %]<a href="[% n.url %]" [% IF n.title %]title="[% n.title %]"[% END %]>[% n.name %]</a>[% ELSE %][% n.name %][% END %]
 [% END %]
 </div> <!-- end navbar -->
 

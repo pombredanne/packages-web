@@ -60,31 +60,10 @@ sub override_maint {
     my ($name, $mail) = split_name_mail( $data->{maintainer} );
 
     # taken from etc/pkgbinarymangler/maintainermangler.overrides
-    return if $mail =~ /\@(ubuntu\.com|canonical\.com|lists\.ubuntu\.com|lists\.canonical\.com|ubuntu\.com\.au|kubuntu\.org)^/o;
-    return if $mail =~ /^(lamont\@debian\.org|q-funk\@iki\.fi|cjwatson\@debian\.org|patrick\.matthaei\@web\.de)^/o;
-
-    if ($mail eq 'adconrad@0c3.net') {
-	$data->{maintainer} = 'Adam Conrad <adconrad@ubuntu.com>';
-	return 1;
-    }
-    if ($mail eq 'mpitt@debian.org') {
-	$data->{maintainer} = 'Martin Pitt <martin.pitt@ubuntu.com>';
-	return 1;
-    }
+    return if $mail =~ /\@(tanglu\.org|lists\.tanglu\.org)^/o;
 
     $data->{'original-maintainer'} = $data->{maintainer};
-    foreach ($data->{section}) {
-	/^(main|restricted)$/ && do {
-	    $data->{maintainer} = 'Ubuntu Core Developers <ubuntu-devel-discuss@lists.ubuntu.com>';
-	    last;
-	};
-	/^(uni|multi)verse$/ && do {
-	    $data->{maintainer} = 'Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>';
-	    last;
-	};
-
-	die 'Huh?';
-    }
+    $data->{maintainer} = 'Tanglu Developers <tanglu-devel-discuss@lists.tanglu.org>';
 
     return 1;
 }
@@ -188,7 +167,7 @@ sub merge_package {
 	    $self->normalize_dependencies($key, $data);
 	}
 	$self->{newest} = $version;
-	
+
         return 1;
     }
 
@@ -217,7 +196,7 @@ sub merge_package {
 	    $self->normalize_dependencies($key, $data);
 	}
     }
-    
+
     return 1;
 }
 
@@ -259,7 +238,7 @@ sub get_newest {
 }
 sub get_src {
     my ($self, $field) = @_;
-    
+
     return $self->{src}{$field};
 }
 
@@ -327,14 +306,14 @@ sub get_dep_field {
 	next unless exists $self->{dep_fields}{$a}{$dep_field};
 	my ($a_deps_norm, $a_deps) = @{$self->{dep_fields}{$a}{$dep_field}};
 #	debug( "get_dep_field: $dep_field/$a: ".Dumper($a_deps_norm,$a_deps), 3 ) if DEBUG;
-	for ( my $i=0; $i < @$a_deps; $i++ ) { # splitted by ,	    
+	for ( my $i=0; $i < @$a_deps; $i++ ) { # splitted by ,
 	    $dep_pkgs{$a_deps_norm->[$i]} = $a_deps->[$i];
 	    $arch_deps{$a}{$a_deps_norm->[$i]}++;
 	}
     }
     @architectures = sort keys %arch_deps;
  #   debug( "get_dep_field called:\n ".Dumper( \%dep_pkgs, \%arch_deps ), 3 ) if DEBUG;
-    
+
     my @deps;
     if ( %dep_pkgs ) {
 	my $old_pkgs = '';
@@ -348,14 +327,14 @@ sub get_dep_field {
 	    unless ( $is_old_pkgs = ($pkgs eq $old_pkgs) ) {
 		$old_pkgs = $pkgs;
 	    }
-	    
+
 	    my ($arch_neg, $arch_str) = _compute_arch_str ( $dp, \%arch_deps,
 							    \@architectures );
 
 	    my @res_pkgs; my $pkg_ix = 0;
 	    foreach my $p_name ( @pkgs ) {
 		if ( $pkg_ix > 0 ) { $arch_str = ""; }
-		
+
 		my $pkg_version = "";
 		$pkg_version = "$dep_pkgs{$dp}[$pkg_ix][1] $dep_pkgs{$dp}[$pkg_ix][2]"
 		    if $dep_pkgs{$dp}[$pkg_ix][1];
