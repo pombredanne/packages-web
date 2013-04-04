@@ -69,13 +69,13 @@
    ServerName %SITE%
    ServerAlias www.%SITE%
 
-   ServerAdmin webmaster@tanglu.org
    DocumentRoot %TOPDIR%/www/
+   ServerAdmin webmaster@tanglu.org
 
    ErrorLog /var/log/apache2/%SITE%-error.log
    CustomLog /var/log/apache2/%SITE%-access.log combined
 
-   Alias /cgi-bin/ %TOPDIR%/cgi-bin/
+   ScriptAlias /cgi-bin/ %TOPDIR%/cgi-bin/
 
    PerlModule ModPerl::Registry
    PerlTaintCheck On
@@ -108,11 +108,13 @@
    RewriteRule ^/changelogs/ - [L]
    RewriteRule ^/Pics/ - [L]
    RewriteRule ^/about/ - [L]
+   RewriteRule ^/tanglu/ - [L]
    RewriteRule ^/[^/]+\.css - [L]
    RewriteRule ^/[^/]+\.js - [L]
    RewriteRule ^/favicon.ico$ - [L]
    RewriteRule ^/robots.txt$ - [L]
 
+#   RewriteRule ^/$ http://www.debian.org/distrib/packages
    RewriteRule ^/$			/index [L]
    RewriteRule ^/([^/+]*)([+])([^/]*)$	"/$1%%{%}2B$3" [N]
    RewriteRule ^/changelog:(.+)$	/changelogs/${changelog-url:$1} [R,L,NE]
