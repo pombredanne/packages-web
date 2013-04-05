@@ -2,7 +2,7 @@
 body {
 	background-image: url("background-dots.png");
 	color: #333;
-	font-family: Ubuntu, Arial, sans-serif;
+	font-family: Cantarell, Arial, sans-serif;
 	font-size: 13px;
 	line-height: 1.5;
 	margin: 0;
@@ -10,7 +10,7 @@ body {
 }
 
 a {
-	color: #DD4814;
+	color: #1488dd;
 	text-decoration: none;
 }
 
@@ -67,7 +67,7 @@ textarea:focus {
 }
 
 #header {
-	background: url("header_b.png") repeat-x #DD4814;
+	background: url("header_b.png") repeat-x #14a62f;
 	border-radius: 0 0 4px 4px;
 	height: 64px;
 }
