@@ -76,7 +76,7 @@ textarea:focus {
 	color: #FFF;
 	display: inline-block;
 	font-size: 18px;
-	margin: 14px 0 0 10px;
+	/*margin: 14px 0 0 10px;*/
 	text-decoration: none;
 }
 
