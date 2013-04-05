@@ -47,9 +47,10 @@ sub init {
 	O_RDONLY, 0666, $DB_BTREE
 	    or die "couldn't tie DB $DBDIR/descriptions_packages.db: $!";
 	untie %debtags;
-	tie %debtags, 'DB_File', "$TOPDIR/files/debtags/vocabulary.db",
-	O_RDONLY, 0666, $DB_BTREE
-	    or die "couldn't tie DB $TOPDIR/files/debtags/vocabulary.db: $!";
+# Currently disabled, does not work
+#	tie %debtags, 'DB_File', "$TOPDIR/files/debtags/vocabulary.db",
+#	O_RDONLY, 0666, $DB_BTREE
+#	    or die "couldn't tie DB $TOPDIR/files/debtags/vocabulary.db: $!";
 	undef $p_obj;
 	untie %postf;
 	$p_obj = tie %postf, 'DB_File', "$DBDIR/package_postfixes.db",
