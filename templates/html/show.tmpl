@@ -24,7 +24,7 @@
    description = desc.$desclang.short
    keywords = "$suite, $archive, $section, $subsection, $version"
    print_search_field = 'packages'
-   search_field_values = { 
+   search_field_values = {
 			  searchon => is_source ? 'sourcenames' : 'names',
                          }
   navigation = nav_arr
@@ -145,7 +145,7 @@
    '</ul>' IF loop.last;
  END -%]
 <p>[% g('Please consider <a href="%s">filing a bug</a> before contacting the maintainer directly.',
-        "http://bugs.tanglu.org/newticket?component=" _ (is_source ? pkg : src.pkg)</p>
+        "http://bugs.tanglu.org/newticket?component=" _ (is_source ? pkg : src.pkg)) %]</p>
 [%- END -%]
 
 [%- IF original_maintainers.size -%]
@@ -187,7 +187,7 @@
 <div class="pconstantnag">
 [% IF suite == "experimental" %]
 [% changelog_link = 'changelog';
-   changelog_link = "$changelogs_url$files.changelog.path" %] 
+   changelog_link = "$changelogs_url$files.changelog.path" %]
 <h2>[% g('Experimental package') %]</h2>
 <p>[% g('Warning: This package is from the <strong>experimental</strong> distribution. That means it is likely unstable or buggy, and it may even cause data loss. Please be sure to consult the <a href="%s">changelog</a> and other possible documentation before using it.',
 	changelog_link) %]</p>
@@ -223,7 +223,7 @@
     <div id="ptags"><p>
     <a href="[% tags_url %]edit.html?pkg=[% uri_escape(pkg) %]">[% g('Tags') %]</a>:
   [%- END %]
-  [% facet = tag.0; lfacet = "$facet-$po_lang"; 
+  [% facet = tag.0; lfacet = "$facet-$po_lang";
      facet_name = debtags_voc.$lfacet;
      SET facet_name = debtags_voc.$facet UNLESS facet_name;
      tag_id = "$tag.0::$tag.1"; ltag = "$tag_id-$po_lang";
@@ -315,7 +315,7 @@
   [% IF loop.first -%]
     <div id="pdownload">
     <h2>[% g('Download %s', pkg) %]</h2>
-    
+
     <table summary="[% g('The download table links to the download of the package and a file overview. In addition it gives information about the package size and the installed size.') %]">
     <caption class="hidecss">[% g('Download for all available architectures') %]</caption>
     <tr><th>[% g('Architecture') %]</th>
@@ -362,7 +362,7 @@
   [% IF loop.first -%]
     <div id="pdownload">
     <h2>Download [% pkg %]</h2>
-    
+
     <table summary="[% g('Download information for the files of this source package') %]">
     <tr><th>[% g('File') %]</th><th>[% g('Size (in kB)') %]</th><th>[% g('MD5 checksum') %]</th></tr>
   [%- END %]
