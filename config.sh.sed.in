@@ -39,7 +39,7 @@ search_url="/search"
 #
 polangs="bg de fi fr hu ja nl pl ru sk sv uk zh-cn zh-tw"
 ddtplangs="ca cs da de en eo es eu fi fr hu it ja km ko nl pl pt pt-br ru sk sv uk zh zh-cn zh-tw"
-archives="janus security"
+archives="us security"
 sections="main contrib non-free"
 parts="$sections"
 suites="aequorea aequorea-updates"
