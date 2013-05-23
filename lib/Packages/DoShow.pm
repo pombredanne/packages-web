@@ -46,14 +46,14 @@ sub do_show {
     my $suite = $opts->{suite}[0];
     $contents{suite} = $suite;
     my $archive = $opts->{archive}[0] ||'';
-    
+
     our (%packages_all, %sources_all);
     my (@results, @non_results);
     my $page = $opts->{source} ?
 	new Packages::SrcPage( $pkg ) :
 	new Packages::Page( $pkg );
     my ($short_desc, $version, $section, $subsection) = ("")x5;
-    
+
     my $st0 = new Benchmark;
     unless (@Packages::CGI::fatal_errors) {
 	tie %packages_all, 'DB_File', "$DBDIR/packages_all_$suite.db",
@@ -91,7 +91,7 @@ sub do_show {
 			debug( join(":", @$entry), 1 ) if DEBUG;
 			my (undef, $archive, undef, $arch, $section, $subsection,
 			    $priority, $version, undef, $provided_by) = @$entry;
-			
+
 			if ($arch ne 'virtual') {
 			    my %data = split /\000/, $packages_all{"$pkg $arch $version"};
 			    $data{package} = $pkg;
@@ -340,7 +340,7 @@ sub do_show {
 
 sub moreinfo {
     my %info = @_;
-    
+
     my $name = $info{name} or return;
     my $env = $info{env} or return;
     my $opts = $info{opts} or return;
@@ -376,9 +376,12 @@ sub moreinfo {
 	    (my $src_basename = $source_version) =~ s,^\d+:,,; # strip epoche
 	    $src_basename = "${source}_$src_basename";
 	    $src_dir =~ s,pool/updates,pool,o;
+	    $src_dir =~ s,^pool,,o;
 
-	    $contents->{files}{changelog}{path} = "$src_dir/$src_basename/changelog";
-	    $contents->{files}{copyright}{path} = "$src_dir/$src_basename/".( $is_source ? 'copyright' : "$name.copyright" );
+	    $contents->{files}{changelog}{path} = "$src_dir/$src_basename"."_changelog";
+	    $contents->{files}{copyright}{path} = "$src_dir/$src_basename"."_copyright";
+	    # FIXME: we should restore per binary package copyright
+	    # $contents->{files}{copyright}{path} = "$src_dir/$src_basename/".( $is_source ? 'copyright' : "$name.copyright" );
 	}
    }
 
@@ -407,7 +410,7 @@ sub providers {
 
 sub build_deps {
     my ( $packages, $opts, $pkg, $relations, $type, $contents) = @_;
-    my %dep_type = ('depends' => 'dep', 'recommends' => 'rec', 
+    my %dep_type = ('depends' => 'dep', 'recommends' => 'rec',
 		    'suggests' => 'sug', 'build-depends' => 'adep',
 		    'build-depends-indep' => 'idep' );
     my $suite = $opts->{suite}[0];
@@ -440,7 +443,7 @@ sub build_deps {
 				version => $pkg_version,
 				arch_str => $arch_str,
 				arch_neg => $arch_neg );
-			     
+
 	    my @results;
 	    my %entries;
 	    my $entry = $entries{$p_name} ||
