@@ -166,19 +166,7 @@ sub _lcmp {
 }
 
 our @SUITES_SORT = qw(  
-			bo
-			hamm
-			slink
-			potato
-			woody
-			sarge
-			oldstable
-			etch etch-m68k
-			stable stable-proposed-updates
-			lenny
-			testing testing-proposed-updates
-			squeeze
-			sid unstable experimental
+			staging
 			aequorea);
 our @ARCHIVE_SORT = qw( non-US security updates volatile backports );
 our @PRIORITY_SORT = qw( required important standard optional extra );
