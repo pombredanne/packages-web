@@ -105,8 +105,8 @@ sub fallback_suite {
     my $suite = shift;
     if ($suite =~ /^(\S+)-(?:updates|backports|volatile)/) {
 	return $1;
-    } elsif ($suite eq 'experimental') {
-	return 'sid';
+    } elsif ($suite eq 'staging') {
+	return 'aequorea';
     } else {
 	return undef;
     }

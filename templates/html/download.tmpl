@@ -38,9 +38,9 @@ deb http://<em>[% mirrors.$archive.europa.0 %]</em> [% suite %] main [% section 
 </pre>
 <p>[% g('Replacing <em>%s</em> with the mirror in question.', mirrors.$archive.europa.0) %]
 [%- END %]
-[% IF suite == "experimental" %]
+[% IF suite == "staging" %]
 <h2>[% g('Experimental package') %]</h2>
-<p>[% g('Warning: This package is from the <strong>experimental</strong> distribution. That means it is likely unstable or buggy, and it may even cause data loss. Please be sure to consult the changelog and other possible documentation before using it.') %]</p>
+<p>[% g('Warning: This package is from the <strong>staging</strong> distribution. That means it is likely unstable or buggy, and it may even cause data loss. Please be sure to consult the changelog and other possible documentation before using it.') %]</p>
 [% END %]
 [% IF subsection == "debian-installer" %]
 <h2>[% g('debian-installer udeb package') %]</h2>

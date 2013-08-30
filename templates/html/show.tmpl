@@ -183,13 +183,13 @@
 </div> <!-- end pmoreinfo -->
 [% END %]
 
-[% IF suite == "experimental" || subsection == "debian-installer" %]
+[% IF suite == "staging" || subsection == "debian-installer" %]
 <div class="pconstantnag">
-[% IF suite == "experimental" %]
+[% IF suite == "staging" %]
 [% changelog_link = 'changelog';
    changelog_link = "$changelogs_url$files.changelog.path" %]
 <h2>[% g('Experimental package') %]</h2>
-<p>[% g('Warning: This package is from the <strong>experimental</strong> distribution. That means it is likely unstable or buggy, and it may even cause data loss. Please be sure to consult the <a href="%s">changelog</a> and other possible documentation before using it.',
+<p>[% g('Warning: This package is from the <strong>staging</strong> distribution. That means it is likely unstable or buggy, and it may even cause data loss. Please be sure to consult the <a href="%s">changelog</a> and other possible documentation before using it. The package will automatically migrate to the current development distribution, when it has been tested.',
 	changelog_link) %]</p>
 [% END %]
 [% IF subsection == "debian-installer" %]
