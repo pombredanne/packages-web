@@ -103,7 +103,7 @@ sub version_cmp_pp {
     return $res;
 }
 
-*version_cmp = \&version_cmp_pp;
+#*version_cmp = \&version_cmp_pp;
 eval {
     require AptPkg::Config;
     require AptPkg::System;
