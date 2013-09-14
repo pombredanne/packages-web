@@ -68,7 +68,7 @@
 [% END %]
 <h3>[% g('%s Resources:', organisation) %]</h3>
 <ul>
-<li><a href="[% 'http://bugs.tanglu.org/query?component=' _ (is_source ? pkg : src.pkg) %]">[% g('Bug Reports') %]</a></li>
+<li><a href="[% 'http://bugs.tanglu.org/buglist.cgi?product=Tanglu&component=0ad' _ (is_source ? pkg : src.pkg) %]">[% g('Bug Reports') %]</a></li>
 
 [% IF files && (!archive or archive == main_archive or archive == 'security') %]
 <li><a href="[% changelogs_url _ files.changelog.path %]">[% g('%s Changelog', organisation) %]</a></li>
@@ -145,7 +145,7 @@
    '</ul>' IF loop.last;
  END -%]
 <p>[% g('Please consider <a href="%s">filing a bug</a> before contacting the maintainer directly.',
-        "http://bugs.tanglu.org/newticket?component=" _ (is_source ? pkg : src.pkg)) %]</p>
+        "http://bugs.tanglu.org/enter_bug.cgi?product=Tanglu&component=" _ (is_source ? pkg : src.pkg)) %]</p>
 [%- END -%]
 
 [%- IF original_maintainers.size -%]
