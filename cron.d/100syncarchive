@@ -65,9 +65,9 @@ else
     	        #FIXME: no Contents files for p-u
 	        #FIXME: the symlinks for wheezy/sid/experimental will go away
 	        #FIXME: this only pulls in the contents files for main in wheezy/sid/experimental
-	        echo retrieve Contents $dist/$arch
+	        echo retrieve Contents $dist/${part}/$arch
 	        rsync -Lt ${localdir}/dists/${dist}/${part}/Contents-${arch}.gz \
-		    us/${dist}/${parts}/Contents-${arch}.gz
+		    us/${dist}/${part}/Contents-${arch}.gz
 	    done
 	done
 	for part in ${parts}
