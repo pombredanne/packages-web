@@ -67,9 +67,17 @@ textarea:focus {
 }
 
 #header {
-	background: url("header_b.png") repeat-x #3f5790;
-	border-radius: 0 0 4px 4px;
-	height: 64px;
+    background-color: #4682B4;
+    box-shadow: 0 3px 5px 3px #AAAAAA;
+    padding: 8px 0;
+    position: relative;
+    width: 100%;
+}
+
+#logo {
+  float: left;
+  margin-right: 20px;
+  width: 125px;
 }
 
 .imageLink {
@@ -88,7 +96,7 @@ textarea:focus {
 
 #search {
 	float: right;
-	margin: 8px 10px 0 0;
+	margin: 18px 10px 0 0;
 	max-width: 400px;
 }
 
