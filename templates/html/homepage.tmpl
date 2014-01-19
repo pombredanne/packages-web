@@ -1,4 +1,4 @@
-[%- PROCESS 'html/head.tmpl' 
+[%- PROCESS 'html/head.tmpl'
 	title_tag = g('%s Packages Search', organisation)
 	page_title = g('%s Packages Search', organisation)
 	keywords = g('Packages')
@@ -6,7 +6,7 @@
 -%]
 [%-
     all_suites = [ 'staging', 'aequorea' ]
-    version_numbers = { aequorea => '1.1',
+    version_numbers = { aequorea => '1.2',
 		      }
     current_release = 'aequorea'
     all_sections = [ 'main', 'contrib', 'non-free' ]
