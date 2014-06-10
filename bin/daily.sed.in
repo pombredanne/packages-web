@@ -45,11 +45,11 @@ else
 fi
 date
 
-if lockfile -300 -r2 "${files}/changelogs.lock"
-then
-    $topdir/bin/extract_changelogs
-    rm -f "${files}/changelogs.lock"
-else
-    echo "couldn't aquire changelogs lock file in due time"
-fi
-date
+#if lockfile -300 -r2 "${files}/changelogs.lock"
+#then
+#    $topdir/bin/extract_changelogs
+#    rm -f "${files}/changelogs.lock"
+#else
+#    echo "couldn't aquire changelogs lock file in due time"
+#fi
+#date
