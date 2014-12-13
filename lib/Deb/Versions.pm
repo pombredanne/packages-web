@@ -27,7 +27,7 @@ Deb::Versions - compare Versions of Debian packages
     use Deb::Versions
 
     my $res = version_cmp( "1:0.2.2-2woody1", "1:0.2.3-7" );
-    
+
     my @sorted = version_sort( "1:0.2.2-2woody1", "1:0.2.3-7", "2:0.1.1" );
 
 =head1 DESCRIPTION
@@ -47,7 +47,7 @@ You can use this function as first parameter for the sort() function.
 
 =item *
 
-version_sort() is just an usefull abbrevation for 
+version_sort() is just an usefull abbrevation for
 
     sort { version_cmp( $b, $a ) } @_;
 
@@ -108,7 +108,7 @@ eval {
     require AptPkg::Config;
     require AptPkg::System;
     require AptPkg::Version;
-    
+
     $AptPkg::Config::_config->init;
     $AptPkg::System::_system = $AptPkg::Config::_config->system;
     my $apt_ver = $AptPkg::System::_system->versioning;
@@ -150,9 +150,9 @@ sub _cmp_part {
 
 sub _lcmp {
     my ( $v1, $v2 ) = @_;
-   
+
     for ( my $i = 0; $i <= length( $v1 ); $i++ ) {
-	my ( $n1, $n2 ) = ( ord( substr( $v1, $i, 1 ) ), 
+	my ( $n1, $n2 ) = ( ord( substr( $v1, $i, 1 ) ),
 			    ord( substr( $v2, $i, 1 ) ) );
 	$n1 += 256 if $n1 && $n1 < 65; # letters sort earlier than non-letters
 	$n1 = -1 if $n1 == 126; # '~' sorts earlier than everything else
@@ -165,7 +165,7 @@ sub _lcmp {
     return length( $v1 ) <=> length( $v2 );
 }
 
-our @SUITES_SORT = qw(  
+our @SUITES_SORT = qw(
 			staging
 			aequorea);
 our @ARCHIVE_SORT = qw( non-US security updates volatile backports );

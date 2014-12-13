@@ -28,7 +28,7 @@
 
 =head1 NAME
 
-Packages::Search - 
+Packages::Search -
 
 =head1 SYNOPSIS
 
@@ -106,7 +106,7 @@ sub fallback_suite {
     if ($suite =~ /^(\S+)-(?:updates|backports|volatile)/) {
 	return $1;
     } elsif ($suite eq 'staging') {
-	return 'aequorea';
+	return 'bartholomea';
     } else {
 	return undef;
     }
@@ -117,7 +117,7 @@ sub read_entry_simple {
     # FIXME: drop $archives
 
     my ($virt, $result) = split /\000/o, $hash->{$key} || "-\01-\0", 2;
-    my %virt = split /\01/o, $virt; 
+    my %virt = split /\01/o, $virt;
     debug( "read_entry_simple: key=$key, archives=".
 	   join(" ",(keys %$archives)).", suite=$suite", 1) if DEBUG;
     debug( "read_entry_simple: virt=".join(" ",(%virt)), 2) if DEBUG;
