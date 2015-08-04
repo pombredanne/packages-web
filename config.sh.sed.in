@@ -42,7 +42,7 @@ ddtplangs="ca cs da de en eo es eu fi fr hu it ja km ko nl pl pt pt-br ru sk sv 
 archives="us security"
 sections="main contrib non-free"
 parts="$sections"
-suites="staging aequorea aequorea-updates bartholomea bartholomea-updates chromodoris"
+suites="staging aequorea aequorea-updates bartholomea bartholomea-updates chromodoris chromodoris-updates dasyatis"
 priorities="required important standard optional extra"
 dists="$suites"
 architectures="i386 amd64 armhf"
@@ -57,6 +57,10 @@ arch_bartholomea_updates="${arch_bartholomea}"
 arch_bartholomea_backports="${arch_bartholomea}"
 
 arch_chromodoris="i386 amd64"
+arch_chromodoris_updates="${arch_bartholomea}"
+arch_chromodoris_backports="${arch_bartholomea}"
+
+arch_dasyatis="i386 amd64"
 
 # Miscellaneous
 #
