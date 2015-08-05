@@ -93,8 +93,8 @@
    BrowserMatch reportbug is_reportbug
 
    RewriteEngine on
-   RewriteLog /var/log/apache2/rewrite.log
-   RewriteLogLevel 0
+   #RewriteLog /var/log/apache2/rewrite.log
+   #RewriteLogLevel 0
 
    RewriteMap changelog-url txt:%TOPDIR%/files/changelogs-map
 
